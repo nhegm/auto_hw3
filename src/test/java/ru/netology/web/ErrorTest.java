@@ -1,5 +1,6 @@
 package ru.netology.web;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 
@@ -80,6 +81,6 @@ public class ErrorTest {
         form.$("[data-test-id=name] input").setValue("Валентин");
         form.$("[data-test-id=phone] input").setValue("+79244567890");
         form.$("[role=button]").click();
-        $(".checkbox__text").shouldBe().getAttribute("color=#ff5c5c");
+        $(".checkbox").shouldNotHave(Condition.attribute("checkbox_checked"));
     }
 }
